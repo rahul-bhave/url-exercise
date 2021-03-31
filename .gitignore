@@ -1,0 +1,7 @@
+csv/
+*sqlite3
+*.idea
+*.code
+*__pycache__
+static/
+venv*/

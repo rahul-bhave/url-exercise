@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>URL Guessing exercise</h1>
+<p>This app is a self assessment tool for any one who wants to develop understanding about guessing url endpoints. We have observed that this habit helps a lot to any engineer, who wants to be very efficinet while searhing, scanning any content </p>
+</p>
+{% if user.is_authenticated %}
+    <p>Username: {{user.username}}</p>
+    <p>Name: {{user.first_name}} {{user.last_name}}</p>
+    <p>Email: {{user.email}}</p>
+{% endif %}
+
+{% endblock  %}
