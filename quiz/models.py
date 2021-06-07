@@ -177,7 +177,7 @@ class Progress(models.Model):
 
     correct_answer = models.CharField(max_length=10, verbose_name=_('Correct Answers'))
 
-    wrong_answer = models.CharField(max_length=10, verbose_name=_('Wrong Answers')) 
+    wrong_answer = models.CharField(max_length=10, verbose_name=_('Wrong Answers'))
 
     objects = ProgressManager()
 
@@ -577,7 +577,7 @@ class CSVUpload(models.Model):
         return self.user.username
 
 def create_user(data):
-    user =  User.objects.create_user(username=data['username'], 
+    user =  User.objects.create_user(username=data['username'],
                             email=data['email'],
                             password=data['password'],
                             first_name=data['first_name'],
@@ -623,7 +623,7 @@ def csv_upload_post_save(sender, instance, created, *args, **kwargs):
             # messages.success(parsed_items)
             print(parsed_items)
         csv_uploaded.send(sender=instance, user=instance.user, csv_file_list=parsed_items)
-        ''' 
+        '''
         if using a model directly
         for line in reader:
             new_obj = YourModelKlass()
@@ -634,11 +634,9 @@ def csv_upload_post_save(sender, instance, created, *args, **kwargs):
                 setattr(new_obj, key) = item
                 i+=1
             new_obj.save()
-        ''' 
+        '''
         instance.completed = True
         instance.save()
 
 
 post_save.connect(csv_upload_post_save, sender=CSVUpload)
-
-
